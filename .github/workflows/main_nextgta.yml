@@ -21,12 +21,11 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: npm install, build, and test
+      - name: yarn install, build, and run
         run: |
-          yarn nstall
+          yarn install
           yarn build
           yarn next build
-          yarn next start
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
