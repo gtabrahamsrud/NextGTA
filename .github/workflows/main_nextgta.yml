@@ -40,7 +40,7 @@ jobs:
       needs: build
       environment:
         name: 'Production'
-        url: $
+        url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
       steps:
         - name: Download artifact from build job
@@ -54,7 +54,8 @@ jobs:
           with:
             app-name: 'NextGTA'
             slot-name: 'Production'
-            publish-profile: $
+            publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4B5A9742390C41D9BF0E0432F3D656BB }}
             package: next.zip
+        
         - name: Delete zip file
           run: rm next.zip
