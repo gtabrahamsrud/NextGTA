@@ -24,7 +24,7 @@ jobs:
       - name: yarn install, build
         run: |
           yarn install
-          yarn run build --if-present
+          yarn run build
 
       - name: Zip all files for upload between jobs
         run: zip next.zip ./* .next -qr
